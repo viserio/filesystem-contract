@@ -13,16 +13,14 @@ declare(strict_types=1);
 
 namespace Viserio\Contract\Filesystem;
 
-use League\Flysystem\AdapterInterface;
-
-interface Connector
+interface CloudFileSystem extends Filesystem
 {
     /**
-     * Establish a connection.
+     * Get the URL for the file at the given path.
      *
-     * @throws \Viserio\Contract\OptionsResolver\Exception\InvalidArgumentException On wrong configuration
+     * @param string $path
      *
-     * @return \League\Flysystem\AdapterInterface;
+     * @return string
      */
-    public function connect(): AdapterInterface;
+    public function url(string $path): string;
 }

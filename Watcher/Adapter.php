@@ -11,10 +11,14 @@ declare(strict_types=1);
  * with this source code in the file LICENSE.
  */
 
-namespace Viserio\Contract\Filesystem\Exception;
+namespace Viserio\Contract\Filesystem\Watcher;
 
-use Exception as BaseException;
-
-class FileModifiedException extends BaseException implements Exception
+interface Adapter extends Watcher
 {
+    /**
+     * Returns whether this watcher is supported on the current OS.
+     *
+     * @return bool
+     */
+    public function isSupported(): bool;
 }
